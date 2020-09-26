@@ -14,10 +14,16 @@ def evaluateInventoryManagement():
 
     result = [{ "searchItemName" : data[0]["searchItemName"], "searchResult" : []}]
     for item in data[0]["items"]:
-        result[0]["searchResult"].append(operate(item))
+        result[0]["searchResult"].append(operate(result[0]["searchItemName"], item))
 
     logging.info("My result :{}".format(result))
     return jsonify(result)
 
-def operate(item):
-    
+def operate(ref,item):
+    # Insertion: 1, Deletion: 2, Substitution: 3
+    pref = 0
+    pitem = 0
+    ref_len = len(ref)
+    status_list = []
+    while(pref < ref_len):
+        if(ref[pref] != item[pitem]):
