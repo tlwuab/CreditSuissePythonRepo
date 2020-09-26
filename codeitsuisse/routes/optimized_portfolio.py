@@ -16,7 +16,7 @@ def evaluateOptimizedPortfolio():
     for i in range(len(data["inputs"])):
         info = data["inputs"][i]
         result["outputs"].append(opti(info))
-        
+
     logging.info("My result :{}".format(result))
     return jsonify(result)
 
@@ -32,8 +32,8 @@ def opti(d):
 
     for i in range(len(d["IndexFutures"])):
         if round(d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"], 3) == min_OHR:
-            min_NFC = int(round(min_OHR*d["Portfolio"]["Value"]/(d["IndexFutures"][i]["IndexFuturePrice"]*d["IndexFutures"][i]["Notional"]),0))
-            result.append({ "HedgePositionName" : d["IndexFutures"][i]["Name"], "OptimalHedgeRatio" : min_OHR, "NumFuturesContract" : min_NFC })
+            min_NFC = int(round(min_OHR*d["Portfolio"]["Value"]/(d["IndexFutures"][i]["IndexFuturePrice"]*d["IndexFutures"][i]["Notional"])))
+            result.append({ "HedgePositionName" : d["IndexFutures"][i]["Name"],"OptimalHedgeRatio" : min_OHR,"NumFuturesContract" : min_NFC })
     
     return result
 
