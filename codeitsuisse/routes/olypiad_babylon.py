@@ -25,12 +25,10 @@ def optimal(d):
     sortedBook.sort(reverse=True)
     sortedDays = d["days"]
     sortedDays.sort(reverse=True)
-
     # current minimum book without being taken
-    minIndex = nBooks-1
     optimalBooks = 0
-
-    optimallist = []
+    start = 0
+    end = nBooks - 1
     for i in range(nDays): 
         sortedDays[i] = sortedDays[i] - sortedBook[start]
         optimalBooks = optimalBooks + 1
