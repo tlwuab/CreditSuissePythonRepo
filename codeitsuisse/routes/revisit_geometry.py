@@ -52,7 +52,14 @@ def findIntersect(edgepoints, linepoints):
         if((intersectx-edgepoints[0]["x"])*(intersectx-edgepoints[1]["x"])<0):
             return { "x" : round(intersectx, 2), "y" : round(intersecty, 2) }
         else:
-            return        
+            return   
+    elif(line["m"]==0):
+        intersecty = line["b"]
+        intersectx = (line["b"] - edge["b"])/edge["m"]
+        if((intersectx-edgepoints[0]["x"])*(intersectx-edgepoints[1]["x"])<0):
+            return { "x" : round(intersectx, 2), "y" : round(intersecty, 2) }
+        else:
+            return               
     else:     
         delta = line["m"] - edge["m"]
         if(delta == 0):
