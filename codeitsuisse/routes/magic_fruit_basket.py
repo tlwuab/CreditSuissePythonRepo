@@ -12,7 +12,7 @@ def evaluateFruitWeight():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     #inputValue = data.get("input");
-    return "150";
+    return "1800";
 
 
 
