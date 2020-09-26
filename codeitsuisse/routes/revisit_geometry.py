@@ -84,7 +84,7 @@ def evaluateIntersect(shapepoints, linepoints):
             intersect = findIntersect([shapepoints[i],shapepoints[0]],linepoints)
         else:
             intersect = findIntersect([shapepoints[i],shapepoints[i+1]],linepoints)
-        if(intersect!=None):
+        if(intersect!=None and intersect not in result):
             result.append(intersect)
     return result
             
