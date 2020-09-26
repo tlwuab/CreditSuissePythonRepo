@@ -14,7 +14,8 @@ def evaluateSocialDistancing():
     #inputValue = data.get("input");
     result = {"answers" : {}}
     for i in range(len(data["tests"])):
-        result["answers"][str(i)] = answer(data["tests"][str(i)])
+        index = str(i)
+        result["answers"][index] = answer(data["tests"][index])
     logging.info("My result :{}".format(result))
     return jsonify(result);
 
