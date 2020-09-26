@@ -17,7 +17,7 @@ def evaluateSocialDistancing():
         index = str(i)
         result["answers"][index] = answer(data["tests"][index])
     logging.info("My result :{}".format(result))
-    return jsonify(result);
+    return jsonify(result)
 
 def answer(case):
     seats = case["seats"]
