@@ -12,7 +12,7 @@ def evaluateFruitWeight():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     #inputValue = data.get("input");
-    guess = 6000
+    guess = 6933
     result = "{}".format(guess)
     return result;
 
