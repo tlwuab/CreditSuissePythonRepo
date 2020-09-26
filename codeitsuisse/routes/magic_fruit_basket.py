@@ -18,7 +18,7 @@ def evaluateFruitWeight():
     estimate = estimate + (data["maBanana"]*data["maBanana"]*10)
     result = "{}".format(estimate)
     logging.info("My result :{}".format(result))
-    return jsonify(result);
+    return result;
 
 
 
