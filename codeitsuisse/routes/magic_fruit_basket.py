@@ -12,11 +12,11 @@ def evaluateFruitWeight():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     #inputValue = data.get("input");
-    result = 0
-    result = result + (data["maApple"]*data["maApple"]*10)
-    result = result + (data["maWatermelon"]*data["maWatermelon"]*10)
-    result = result + (data["maBanana"]*data["maBanana"]*10)
-
+    estimate = 0
+    estimate = estimate + (data["maApple"]*data["maApple"]*10)
+    estimate = estimate + (data["maWatermelon"]*data["maWatermelon"]*10)
+    estimate = estimate + (data["maBanana"]*data["maBanana"]*10)
+    result = "{}".format(estimate)
     logging.info("My result :{}".format(result))
     return jsonify(result);
 
