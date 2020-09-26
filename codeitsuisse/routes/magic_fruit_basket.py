@@ -16,9 +16,7 @@ def evaluateFruitWeight():
     estimate = estimate + (data["maApple"]*data["maApple"]*10)
     estimate = estimate + (data["maWatermelon"]*data["maWatermelon"]*10)
     estimate = estimate + (data["maBanana"]*data["maBanana"]*10)
-    result = "{}".format(estimate)
-    logging.info("My result :{}".format(result))
-    return result;
+    return str(estimate);
 
 
 
