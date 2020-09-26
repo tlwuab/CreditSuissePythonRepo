@@ -13,8 +13,9 @@ def evaluateSecretMessage():
     logging.info("data sent for evaluation {}".format(data))
     #inputValue = data.get("input");
     result = 0
-    for sample in data:
-        result = result + sample * (sample*10)
+    result = result + data["maApple"]*data["maApple"]*10
+    result = result + data["maWatermelon"]*data["maWatermelon"]*10
+    result = result + data["maBanana"*data["maBanana"]*10
     logging.info("My result :{}".format(result))
     return jsonify(data);
 
