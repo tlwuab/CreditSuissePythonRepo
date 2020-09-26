@@ -21,6 +21,7 @@ def evaluateSecretMessage():
 def alter(seq):
     # count the numbers of each base
     numA, numT, numC, numG = 0,0,0,0
+    l = len(seq)
     for i in seq:
         if(i=='A'):
             numA = numA + 1
@@ -30,6 +31,7 @@ def alter(seq):
             numC = numC + 1
         elif(i=='G'):
             numG = numG + 1
+    
     
 
 
