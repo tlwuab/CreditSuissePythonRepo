@@ -34,7 +34,7 @@ def encrypt(n, text):
         remainder = len(processed_text) % n  # 2
 
         if i < remainder:
-            length += 1
+            length += 1 
 
         substring = processed_text[start: start+length]
         list_of_substrings.append(substring)
