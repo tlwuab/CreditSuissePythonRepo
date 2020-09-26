@@ -12,9 +12,11 @@ def evaluateOptimizedPortfolio():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     
-    info = data["inputs"][0]
     result = { "outputs" : [] }
-    result["outputs"].append(opti(info))
+    for i in range(len(data["inputs"])):
+        info = data["inputs"][i]
+        result["outputs"].append(opti(info))
+        
     logging.info("My result :{}".format(result))
     return jsonify(result)
 
