@@ -25,10 +25,12 @@ def answer(case):
     spaces = case["spaces"]
     remaining = seats - people - spaces*(people-1)
     temp = people + 1
+    factorial = 1
     sol = 1
     for i in range(remaining):
         sol = sol * temp
         temp = temp + 1
-    for j in range(remaining,0,-1):
-        sol = sol / j
+    for j in range(remaining):
+        factorial = factorial * (j+1)
+    sol = sol / factorial
     return sol
