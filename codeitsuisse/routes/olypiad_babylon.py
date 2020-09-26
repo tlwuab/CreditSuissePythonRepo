@@ -7,7 +7,7 @@ from codeitsuisse import app;
 
 logger = logging.getLogger(__name__)
 
-@app.route('/encryption', methods=['POST'])
+@app.route('/olympiad-of-babylon', methods=['POST'])
 def evaluateSecretMessage():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
@@ -24,13 +24,14 @@ def optimal(d):
     sortedDays = d["days"].sort()
     optimalBooks = 0
     j = nBooks-1
-    for i in sortedDays:
-        if optimalBooks = nBooks:
+    for i in range(len(sortedDays)):
+        if optimalBooks == nBooks:
             break
-        if i >= sortedBook[j]:
-            i = i - sortedBook[j]
+        if sortedBook[i] >= sortedBook[j]:
+            sortedBook[i] = sortedBook[i] - sortedBook[j]
+            i = i - 1
             j = j - 1
             optimalBooks = optimalBooks + 1
-    return optimalBooks
+    return { "optimalNumberOfBooks" : optimalBooks }
 
 
