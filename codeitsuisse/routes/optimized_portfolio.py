@@ -34,12 +34,11 @@ def opti(d):
         if round(d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"], 3) <= min_OHR:
             best_option = i
     min_OHR = round(d["IndexFutures"][best_option]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][best_option]["FuturePrcVol"],3)
-
+    min_NFC = myround((d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][best_option]["FuturePrcVol"])*d["Portfolio"]["Value"]/(d["IndexFutures"][best_option]["IndexFuturePrice"]*d["IndexFutures"][best_option]["Notional"]))
     for i in range(len(d["IndexFutures"])):
         if round(d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"], 3) == min_OHR:
             temp_NFC = myround((d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"])*d["Portfolio"]["Value"]/(d["IndexFutures"][i]["IndexFuturePrice"]*d["IndexFutures"][i]["Notional"]))
-            if(temp_NFC < min_NFC):
-                min_NFC = myround(temp_NFC)
+            if(temp_NFC == min_NFC):
                 result.append({ "HedgePositionName" : d["IndexFutures"][i]["Name"],"OptimalHedgeRatio" : min_OHR,"NumFuturesContract" : min_NFC })
     
     return result
