@@ -39,6 +39,7 @@ def opti(d):
         if round(d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"], 3) == min_OHR:
             temp_NFC = myround((d["IndexFutures"][i]["CoRelationCoefficient"]*d["Portfolio"]["SpotPrcVol"]/d["IndexFutures"][i]["FuturePrcVol"])*d["Portfolio"]["Value"]/(d["IndexFutures"][i]["IndexFuturePrice"]*d["IndexFutures"][i]["Notional"]))
             if(temp_NFC < min_NFC):
+                min_NFC = temp_NFC
                 result.append({ "HedgePositionName" : d["IndexFutures"][i]["Name"],"OptimalHedgeRatio" : min_OHR,"NumFuturesContract" : min_NFC })
     
     return result
